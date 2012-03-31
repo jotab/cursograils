@@ -22,13 +22,14 @@ class PlaygroundController {
 			a = params.A as Integer
 			b = params.B as Integer
 			
-			[a: a, b: b, soma: a + 1]
+			[a: a, b: b, soma: a + b]
 		} catch (NumberFormatException e) {
-			redirect(action: "erro")
-		 	//render "Voçê digitou um valor que não é um número"
+			flash.mensagem = "Deu erro"
+		 	redirect(action: "calculadora")
+			//render "Voçê digitou um valor que não é um número"
 		} catch (NullPointerException e) {
-			redirect(action: "erro")
-		 	//render "Voçê digitou um valor que não é um número"
+			flash.mensagem = "Deu erro"
+		 	redirect(action: "calculadora")
 		}
 	
 		//render "${a} + ${b} = ${soma}" 
